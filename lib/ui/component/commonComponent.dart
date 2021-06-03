@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:poker_tracker/ui/choose_dir.dart';
+import '../choose_dir.dart';
 
-class MainScreen extends HookWidget {
-  const MainScreen();
-
-  @override
-  Widget build(BuildContext context) {
+class CommonComponent {
+  Widget getScreenOutline(
+    BuildContext context,
+    Widget body,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('poker tracker header'),
@@ -65,7 +64,7 @@ class MainScreen extends HookWidget {
           preferredSize: Size.fromHeight(20),
         ),
       ),
-      body: const Text('body'),
+      body: body,
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
