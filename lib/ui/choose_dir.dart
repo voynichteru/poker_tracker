@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:filepicker_windows/filepicker_windows.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,15 +24,10 @@ class ChooseDirScreen extends HookWidget {
         width: MediaQuery.of(context).size.width / 2,
         child: ElevatedButton(
           onPressed: () async {
-            /* final docDir = await getApplicationDocumentsDirectory();
-            final supportDir = await getApplicationSupportDirectory();
-            debugPrint('dir path : ${docDir.path}');
-            debugPrint('support path : ${supportDir.path}'); */
+            final dir = DirectoryPicker().getDirectory();
 
-            final file = OpenFilePicker();
-            final result = file.getFile();
-            if (result != null) {
-              debugPrint('${result.path}');
+            if (dir != null) {
+              debugPrint('${dir.path}');
             }
           },
           style: ButtonStyle(
